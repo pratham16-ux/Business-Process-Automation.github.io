@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign Up | Stackly</title>
+<meta name="description" content="Create your Stackly Admin or Employee account.">
+<meta name="theme-color" content="#0A0F24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/auth.css" rel="stylesheet">
+</head>
+<body>
+<div id="progress"></div>
+<header class="hdr">
+  <div class="container nav">
+    <a aria-label="Stackly home" class="logo" href="index.html"><img alt="Stackly by SNAB Solutions" height="44" src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=280&output=webp&q=85&fit=cover" width="140"></a>
+    <nav class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-p" href="login.html">Login</a>
+    </nav>
+    <button aria-label="Menu" class="burger"><span></span></button>
+  </div>
+</header>
+<main>
+<section class="login-page">
+  <img alt="" class="hero-bg" fetchpriority="high" height="900" src="assets/img/hero-home.webp" width="1600">
+  <div class="container login-grid">
+    <div class="rv">
+      <span class="pill"><i></i> Free to get started</span>
+      <h1>Create your <span class="grad">Stackly</span> account</h1>
+      <p class="lead">Set up your account in under a minute. Once it is created you will be taken to the login page to sign in.</p>
+    </div>
+    <div class="login-card rv r">
+      <h2>Sign up</h2>
+      <p>Pick an account type and fill in your details.</p>
+      <div class="alert" id="alert" role="alert"></div>
+      <form id="signupForm" novalidate>
+        <div class="roles" role="radiogroup" aria-label="Account type">
+  <label class="role"><input type="radio" name="role" value="admin" ><span>
+    <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    <b>Admin</b><small>Manage users, workflows &amp; approvals</small></span></label>
+  <label class="role"><input type="radio" name="role" value="employee" checked><span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+    <b>Employee</b><small>Track tasks &amp; raise requests</small></span></label>
+</div>
+        <div class="row">
+          <div class="fld"><label for="name">Full name</label><input id="name" maxlength="16" placeholder="Your name" autocomplete="given-name"><div class="err"></div></div>
+          <div class="fld"><label for="phone">Mobile number</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="98XXXXXXXX" autocomplete="tel-national"><div class="err"></div></div>
+        </div>
+        <div class="fld"><label for="email">Work email</label><input id="email" type="email" placeholder="you@company.com" autocomplete="email"><div class="err"></div></div>
+        <div class="fld" id="codeField"><label for="code">Admin access code</label><input id="code" placeholder="Provided by your organisation"><div class="hint">Demo code: STACKLY2026</div><div class="err"></div></div>
+        <div class="row">
+          <div class="fld"><label for="password">Password</label><div class="pw"><input id="password" type="password" placeholder="Min 8 characters" autocomplete="new-password"><button type="button">Show</button></div><div class="err"></div></div>
+          <div class="fld"><label for="password2">Confirm password</label><div class="pw"><input id="password2" type="password" placeholder="Repeat password" autocomplete="new-password"><button type="button">Show</button></div><div class="err"></div></div>
+        </div>
+        <label class="chk"><input type="checkbox" id="terms"> <span>I agree to the <a href="contact.html">Terms</a> and <a href="contact.html">Privacy Policy</a>.</span></label>
+        <button class="btn btn-p" type="submit">Create account →</button>
+      </form>
+      <p class="login-foot">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<script defer src="js/main.js"></script>
+<script defer src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login | Stackly</title>
+<meta name="description" content="Log in to your Stackly Admin or Employee dashboard.">
+<meta name="theme-color" content="#0A0F24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/auth.css" rel="stylesheet">
+</head>
+<body>
+<div id="progress"></div>
+<header class="hdr">
+  <div class="container nav">
+    <a aria-label="Stackly home" class="logo" href="index.html"><img alt="Stackly by SNAB Solutions" height="44" src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=280&output=webp&q=85&fit=cover" width="140"></a>
+    <nav class="menu" id="menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-p" href="signup.html">Sign Up</a>
+    </nav>
+    <button aria-label="Menu" class="burger"><span></span></button>
+  </div>
+</header>
+<main>
+<section class="login-page">
+  <img alt="" class="hero-bg" fetchpriority="high" height="900" src="assets/img/hero-home.webp" width="1600">
+  <div class="container login-grid">
+    <div class="rv">
+      <span class="pill"><i></i> Secure workspace access</span>
+      <h1>Welcome back to <span class="grad">Stackly</span></h1>
+      <p class="lead">Choose how you want to sign in. Admins manage people, workflows and approvals; employees track their tasks and raise requests.</p>
+    </div>
+    <div class="login-card rv r">
+      <h2>Log in</h2>
+      <p>Select your account type and enter your details.</p>
+      <div class="alert" id="alert" role="alert"></div>
+      <form id="loginForm" novalidate>
+        <div class="roles" role="radiogroup" aria-label="Account type">
+  <label class="role"><input type="radio" name="role" value="admin" checked><span>
+    <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    <b>Admin</b><small>Manage users, workflows &amp; approvals</small></span></label>
+  <label class="role"><input type="radio" name="role" value="employee" ><span>
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+    <b>Employee</b><small>Track tasks &amp; raise requests</small></span></label>
+</div>
+        <div class="fld">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@company.com" autocomplete="username">
+          <div class="err"></div>
+        </div>
+        <div class="fld">
+          <label for="password">Password</label>
+          <div class="pw"><input id="password" type="password" placeholder="Your password" autocomplete="current-password"><button type="button">Show</button></div>
+          <div class="err"></div>
+        </div>
+        <div class="login-meta">
+          <label><input type="checkbox" checked> Keep me signed in</label>
+          <a href="contact.html">Forgot password?</a>
+        </div>
+        <button class="btn btn-p" type="submit">Log in →</button>
+      </form>
+      <div class="demo">Just exploring? Use the demo account for the selected option.<br><button type="button" id="fillDemo">Fill demo credentials</button></div>
+      <p class="login-foot">New to Stackly? <a href="signup.html">Create an account</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<script defer src="js/main.js"></script>
+<script defer src="js/auth.js"></script>
+</body>
+</html>

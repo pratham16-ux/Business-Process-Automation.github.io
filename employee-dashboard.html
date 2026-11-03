@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employee Dashboard | Stackly</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0F24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/dashboard.css" rel="stylesheet">
+<script>try{var s=JSON.parse(sessionStorage.stacklyAuth);if(!s)throw 0}catch(e){location.replace('login.html?next=expired')}</script>
+</head>
+<body class="dash-body" data-role="employee">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6"/><path d="M16 4a4 4 0 010 8M22 21c0-3-2-5-4-5.6"/></symbol>
+<symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v4a2 2 0 002 2h7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 00-2.1-1.2L14 3h-4l-.5 2.6a7 7 0 00-2.1 1.2l-2.3-.9-2 3.4 2 1.5a7 7 0 000 2.4l-2 1.5 2 3.4 2.3-.9a7 7 0 002.1 1.2L10 21h4l.5-2.6a7 7 0 002.1-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9l2 2 3-3M8 15h8"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+<symbol id="i-out" viewBox="0 0 24 24"><path d="M9 21H5V3h4M16 17l5-5-5-5M21 12H9"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6l2 2H4z"/><path d="M10 21h4"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-money" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</defs></svg>
+<div class="dash">
+  <aside class="side" id="side">
+    <a class="logo" href="index.html" aria-label="Stackly home"><img alt="Stackly" src="https://wsrv.nl/?url=https://snabsolutions.in/wp-content/uploads/2026/02/stackly-snab-solutions.png&w=280&output=webp&q=85&fit=cover" height="36" width="115"></a>
+    <div class="side-lbl">Employee workspace</div>
+    <nav class="snav"><button class="nv on" data-view="overview"><svg class="i"><use href="#i-home"/></svg>Overview</button><button class="nv" data-view="tasks"><svg class="i"><use href="#i-task"/></svg>My Tasks</button><button class="nv" data-view="requests"><svg class="i"><use href="#i-doc"/></svg>Requests</button><button class="nv" data-view="profile"><svg class="i"><use href="#i-user"/></svg>Profile</button></nav>
+    <div class="side-foot">
+      <a class="nv" href="index.html"><svg class="i"><use href="#i-globe"/></svg>Back to website</a>
+      <button class="nv" data-logout><svg class="i"><use href="#i-out"/></svg>Logout</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <header class="tb">
+      <button class="ibtn" id="sbtn" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+      <h1 id="vt">Overview</h1>
+      <label class="sq"><svg class="i"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Search this page…" aria-label="Search"></label>
+      <div class="pwrap">
+        <button class="ibtn" id="bellBtn" aria-label="Notifications"><svg class="i"><use href="#i-bell"/></svg><span class="dot" id="bellDot"></span></button>
+        <div class="pop" id="bell"><h4>Notifications</h4><div id="bellList"></div></div>
+      </div>
+      <div class="pwrap">
+        <button class="who-btn" id="umBtn" aria-label="Account menu"><div class="av uAv">A</div><span class="uName">User</span></button>
+        <div class="pop" id="um">
+          <button class="pi" data-go="profile">My profile<small>Update your details</small></button>
+          <button class="pi" data-logout>Logout<small>End this session</small></button>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+<section class="view" id="v-overview">
+<p class="sub">Your day at a glance.</p><div class="kpis"><div class="kpi"><div class="ki"><svg class="i"><use href="#i-task"/></svg></div><b id="k1">0</b><span>Open tasks</span></div><div class="kpi"><div class="ki"><svg class="i"><use href="#i-check"/></svg></div><b id="k2">0</b><span>Completed tasks</span></div><div class="kpi"><div class="ki"><svg class="i"><use href="#i-doc"/></svg></div><b id="k3">0</b><span>Pending requests</span></div><div class="kpi"><div class="ki"><svg class="i"><use href="#i-clock"/></svg></div><b id="k4">0</b><span>Hours saved by automation</span></div></div><div class="grid2">
+<div class="panel"><div class="ph"><h3>Tasks completed this week</h3></div><canvas class="cv" id="cBar" aria-label="Tasks completed this week"></canvas></div>
+<div class="panel"><div class="ph"><h3>Open tasks by priority</h3></div><canvas class="cv" id="cDon" aria-label="Open tasks by priority"></canvas><div class="legend" id="legend"></div></div>
+</div><div class="panel"><div class="ph"><h3>Up next</h3><button class="btn btn-l btn-xs" data-go="tasks">View all tasks</button></div><ul class="feed" id="upNext"></ul></div>
+</section>
+<section class="view" id="v-tasks">
+<p class="sub">Tick tasks off as you finish them.</p>
+<div class="tools"><div class="seg" id="tSeg"><button class="on" data-f="all">All</button><button data-f="open">Open</button><button data-f="done">Done</button></div><span class="grow"></span><button class="btn btn-p btn-sm" id="addTask">+ New task</button></div>
+<div class="panel" id="tList"></div>
+</section>
+<section class="view" id="v-requests">
+<p class="sub">Raise leave, expense, equipment or access requests for admin approval.</p>
+<div class="tools"><span class="grow"></span><button class="btn btn-p btn-sm" id="addReq">+ New request</button></div>
+<div class="dtw"><table class="dt"><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Details</th><th>Status</th><th>Action</th></tr></thead><tbody id="rBody"></tbody></table></div>
+</section>
+<section class="view" id="v-profile">
+<p class="sub">Keep your details up to date and change your password.</p>
+<div class="panel"><div class="ph"><h3>Profile details</h3></div>
+<form id="profForm" novalidate><div class="fgrid">
+<div class="fld"><label for="pName">Full name</label><input id="pName" maxlength="16"></div>
+<div class="fld"><label for="pPhone">Mobile number</label><input id="pPhone" type="tel" maxlength="10" inputmode="numeric"></div>
+<div class="fld"><label for="pEmail">Email</label><input id="pEmail" readonly></div>
+<div class="fld"><label for="pRole">Account type</label><input id="pRole" readonly></div>
+</div><button class="btn btn-p btn-sm" type="submit">Save changes</button><div class="fmsg" id="profMsg" role="status"></div></form></div>
+<div class="panel"><div class="ph"><h3>Change password</h3></div>
+<form id="pwForm" novalidate><div class="fgrid">
+<div class="fld"><label for="pwOld">Current password</label><input id="pwOld" type="password" autocomplete="current-password"></div><div></div>
+<div class="fld"><label for="pwNew">New password</label><input id="pwNew" type="password" autocomplete="new-password"></div>
+<div class="fld"><label for="pwNew2">Confirm new password</label><input id="pwNew2" type="password" autocomplete="new-password"></div>
+</div><button class="btn btn-d btn-sm" type="submit">Update password</button><div class="fmsg" id="pwMsg" role="status"></div></form></div>
+</section>
+
+    </main>
+  </div>
+</div>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
