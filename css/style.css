@@ -37,7 +37,10 @@
 }
 
 html {
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%
 }
 
 body {
@@ -94,7 +97,18 @@ p {
 }
 
 section {
-  position: relative
+  position: relative;
+  overflow-x: clip
+}
+
+/* Let grid children shrink instead of forcing the page wider than the screen */
+.grid>*,
+.split>*,
+.hero-grid>*,
+.login-grid>*,
+.fg>*,
+.row>* {
+  min-width: 0
 }
 
 .sec {
@@ -205,8 +219,20 @@ section {
 }
 
 .logo img {
-  height: 44px;
+  height: 50px;
   width: auto
+}
+
+/* Header logo: single theme colour (ink navy) on the light header */
+.hdr .logo img {
+  filter: brightness(0);
+  opacity: .92;
+  transition: opacity .3s var(--ease), transform .3s var(--ease)
+}
+
+.hdr .logo:hover img {
+  opacity: 1;
+  transform: scale(1.03)
 }
 
 .menu {
@@ -360,8 +386,11 @@ section {
   height: 20px
 }
 
+/* Footer logo: larger, white on the dark ink footer */
 .ftr .logo img {
-  height: 38px
+  height: 64px;
+  width: auto;
+  filter: brightness(0) invert(1)
 }
 
 .copy {
@@ -768,7 +797,12 @@ section {
   position: relative
 }
 
+img[style*="aspect-ratio"] {
+  height: auto
+}
+
 .media img {
+  height: auto;
   border-radius: 28px;
   width: 100%;
   aspect-ratio: 9/7;
@@ -1705,9 +1739,14 @@ input[type=range] {
     transform: none
   }
 
-  .hero {
+  .hero,
+  .hero.small {
     padding: 120px 0 70px;
     min-height: auto
+  }
+
+  .head {
+    margin-bottom: 40px
   }
 
   .hero:before {
@@ -1748,6 +1787,87 @@ input[type=range] {
     height: 38px
   }
 
+  .ftr .logo img {
+    height: 52px
+  }
+
+  .hero,
+  .hero.small {
+    padding: 108px 0 56px
+  }
+
+  .blob {
+    width: 260px;
+    height: 260px
+  }
+
+  .toggle {
+    max-width: 100%
+  }
+
+  .toggle button {
+    padding: 10px 14px;
+    font-size: .88rem
+  }
+
+  .plan {
+    padding: 32px 24px
+  }
+
+  .price {
+    font-size: 2.4rem
+  }
+
+  .stat {
+    padding: 24px 12px
+  }
+
+  .quote {
+    padding: 26px
+  }
+
+  .chip {
+    padding: 10px 16px;
+    font-size: .88rem
+  }
+
+  .badge {
+    right: 8px;
+    bottom: 14px;
+    padding: 10px 14px;
+    font-size: .9rem
+  }
+
+  .fq button {
+    padding: 18px 20px;
+    font-size: 1rem
+  }
+
+  .fq div p {
+    padding: 0 20px 20px
+  }
+
+  .form {
+    padding: 24px 20px
+  }
+
+  .res {
+    padding: 26px 18px
+  }
+
+  .cta {
+    border-radius: 24px
+  }
+
+  th,
+  td {
+    padding: 14px 16px
+  }
+
+  .news .btn {
+    justify-content: center
+  }
+
   .card {
     padding: 28px 24px
   }
@@ -1759,4 +1879,20 @@ input[type=range] {
   .head {
     margin-bottom: 38px
   }
+}
+
+/* ==========================================================================
+   8. PORTRAIT IMAGES (avatars in testimonials and team cards)
+   ========================================================================== */
+
+.av {
+  overflow: hidden;
+  flex-shrink: 0
+}
+
+.av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%
 }
